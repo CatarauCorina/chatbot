@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e870178e-1ef3-4198-a454-05af2cad30ca" name="Default Changelist" comment="" />
+    <list default="true" id="e870178e-1ef3-4198-a454-05af2cad30ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../sarcasm_module/.idea/sarcasm_module.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sarcasm_module/attention_lstm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sarcasm_module/sarcasm_lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +133,7 @@
       <updated>1581159604969</updated>
       <workItem from="1581159606892" duration="20662000" />
       <workItem from="1581295599658" duration="1763000" />
+      <workItem from="1581638417388" duration="1205000" />
     </task>
     <servers />
   </component>
@@ -139,7 +145,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
