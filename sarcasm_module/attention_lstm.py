@@ -20,8 +20,8 @@ class AttentionMultiHead(nn.Module):
         for head in self.heads:
             out = head(input_vector)
             all_heads.append(out)
-        z_out_concat = torch.cat(all_heads, dim=1)
-        z_out_out = self.linear_out(z_out_concat)
+        z_out_concat = torch.cat(all_heads, dim=2)
+        z_out_out = F.relu(self.linear_out(z_out_concat))
         return z_out_out
 
 
@@ -37,14 +37,14 @@ class SelfAttention(nn.Module):
         return
 
     def forward(self, input_vector):
-        query_out = self.query_linear(input_vector)
-        key_out = self.key_linear(input_vector)
-        value_out = self.value_linear(input_vector)
-        out_combine = torch.mm(
-            torch.div(torch.mm(query_out, key_out.transpose(0, 1)), math.sqrt(self.dk_size)),
-            value_out)
-        out = self.softmax(out_combine)
-        return out
+        query_out = F.relu(self.query_linear(input_vector))
+        key_out = F.relu(self.key_linear(input_vector))
+
+        value_out = F.relu(self.value_linear(input_vector))
+        out_q_k = torch.div(torch.bmm(query_out, key_out.transpose(1, 2)), math.sqrt(self.dk_size))
+        softmax_q_k = self.softmax(out_q_k)
+        out_combine = torch.bmm(softmax_q_k, value_out)
+        return out_combine
 
 
 def main():
